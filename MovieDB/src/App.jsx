@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import HomePage from './pages/Home'
 import Navigation from './components/Navigation'
 import PageNotFound from './pages/PageNotFound'
-import AllMovies from './pages/AllMovies'
+import AllMovies from './pages/MovieList'
 import Movie from './pages/Movie'
 
 function App() {

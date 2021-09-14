@@ -1,12 +1,15 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
 
-const Movie = () => {
+
+
+const Movie = ({movie}) => {
+	console.log(movie)
 	return (
-		<Container className="py-3">
-			<h1>Movie</h1>
-		</Container>
-	)
+
+	<p>h1 {movie.original_title} </p>
+	
+	);
 }
 
 export default Movie

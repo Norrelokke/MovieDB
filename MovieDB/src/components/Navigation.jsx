@@ -6,18 +6,24 @@ import Navbar from 'react-bootstrap/Navbar'
 
 const Navigation = () => {
     return (
-        <Navbar bg="dark" variant="dark" expand="md">
+        <Navbar bg="navbar navbar-dark" expand="md">
             <Container>
                 <Link to="/" className="navbar-brand">
-                    Movie api
+                   <img src="assets/logo.png" alt="Fresh T" />
                 </Link>
-
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
                         <NavLink to="/" className="nav-link">
                             Home
                         </NavLink>
+                        <NavLink to="/genres" className="nav-link">
+                            Genres
+                        </NavLink>
+                        <NavLink to="/popular" className="nav-link">
+                            Popular movies
+                        </NavLink>
+                    
 
                     </Nav>
                 </Navbar.Collapse>

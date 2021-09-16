@@ -4,25 +4,20 @@ import GenreList from '../components/GenreList'
 import { getGenres, getpopularMovies } from '../services/API'
 import { useQuery } from 'react-query'
 import Popular from '../components/Popular'
+import { useParams } from 'react-router'
 
-const HomePage = () => {
-  
+const SingleMovie = () => {
+    const historyParam = useParams();
 	const { data:genres } = useQuery('genres', getGenres);
 	const { data:popmovies, status } = useQuery('popmovies', getpopularMovies);
 
 	
 		return (
-			<Container>
-
-		{popmovies && 
-	
-		<div className="Home-movies"> 
-			<h1>Popular Movies</h1>
-		<Popular popmovies={popmovies}/>
+			<Container className="py-3">
 		
-		</div>}
+	<p>Single movie</p>
 			</Container>
 		)
 }
 
-export default HomePage
+export default SingleMovie

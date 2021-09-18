@@ -14,7 +14,7 @@ const SingleMovie = () => {
 	const { data: credits, isError: Error, isLoading: Loading } = useQuery(['credits', id], () => {
 		return getMovieCredits(id)
 	})
-console.log(credits)
+
 const history = useHistory();
 const handleClick = (actorId) => {
 	if (actorId === undefined) {
@@ -29,30 +29,26 @@ const handleClick = (actorId) => {
 			{isError && <Alert variant="warning" className="my-4"><h1>{error.message}</h1></Alert>}
 			{data &&
 				<>
-
 					<Container className="Movie-details">
 						<div className="backdrop"><img src={"https://image.tmdb.org/t/p/w300/" + data.backdrop_path} alt="posterimage" /></div>
 						<div className="Movie-details-text">	<h1>{data.title}</h1>
 							<p>{data.tagline}</p>
 							<p>{data.overview}</p> </div>
 						<img src={"https://image.tmdb.org/t/p/w200/" + data.poster_path} alt="posterimage" />
-
 					</Container>
 				</>}
 
 			{Loading && <h1>Loading...</h1>}
 			{Error && <Alert variant="warning" className="my-4"><h1>{error.message}</h1></Alert>}
 			<Container  className="Movie-details">
-			<h2>Actors:</h2>
-			{credits &&
-		
-				credits.cast.map(actor => (
-	
-					<div className="movie-preview" key={actor.id} onClick={() => handleClick(actor.id)} >
-						<p>{actor.name}</p>
-					</div>
-				))
-		    }
+				<h2>Actors:</h2>
+				{credits &&
+					credits.cast.map(actor => (
+						<div className="movie-preview" key={actor.id} onClick={() => handleClick(actor.id)} >
+							<p>{actor.name}</p>
+						</div>
+					))
+				}
 		</Container>
 		</Container>
 	)

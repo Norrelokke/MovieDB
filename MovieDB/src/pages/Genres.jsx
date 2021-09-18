@@ -1,19 +1,38 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container'
 import { getGenres } from '../services/API'
 import { useQuery } from 'react-query'
-import GenreList from '../components/GenreList'
+import { useHistory } from 'react-router'
+import Container from 'react-bootstrap/esm/Container'
 
-const MovieList = () => {
-
+const Genres = () => {
+//Page with list Genres 
 	const { data:genres } = useQuery('genres', getGenres);
-	
-		return (
-			<Container className="py-3">
-			{genres && <GenreList genres={genres}/>}
-			</Container>
-		)
+	const history = useHistory();
+
+    const handleClick = (genreId) => {
+      if (genreId === undefined) {
+        history.push(`/PageNotFound`);
+      } else {
+        history.push(`/genres/${genreId}`);
+      }
+    };
+
+//List of genres  with links to single genre page
+	return (
+          <Container className="py-3">
+            <div className="genre-list">
+                {genres?.genres.map(genre => (
+                  <div 
+                      className="genre"
+                      key={genre.id}
+                      onClick={() => handleClick(genre.id)} >
+                  <h5>{ genre.name }</h5>
+                  </div>
+                ))}
+            </div>
+            </Container>
+	      );
 	
   }
    
-  export default MovieList;
+  export default Genres;

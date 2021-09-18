@@ -47,7 +47,7 @@ body{
     flex-wrap: wrap;
 
 }
-.movie-list {
+.movie-list, .single-actor {
     display: flex;
     flex-wrap: wrap;
     background-color: #fff;
@@ -55,17 +55,22 @@ body{
     letter-spacing: 0.05em;
     font-weight: 600;
     font-size: 1rem;
-
+justify-content: center;
   }
 
+.single-actor img{
+    padding:2rem;
+}
 .movie-preview{
- 
     margin: 1rem 1rem 1rem 3rem;
     max-height: 320px;
     max-width: 180px;
     cursor: pointer;
 }
-
+.movie-preview img{
+    height: 300px;
+    width: 200px;
+}
 .genre{
     margin: 1rem 1rem 0rem 0rem;
     max-width: 160px;
@@ -77,8 +82,20 @@ body{
 
 .genre h5{
     font-family: BebasNeue;
+}
+
+.pagination-buttons{
+    display: flex;
+    justify-content: center;
 
 }
+.pagination-buttons a{
+    color:#397367;
+}
+.pagination-buttons a:hover{
+    color:#000;
+}
+
 
 .Movie-details{
     background-color: #fff;
@@ -92,6 +109,12 @@ body{
 
 .Movie-details-text {
     font-family: BebasNeue;
+}
+
+.Actor-details{
+    display:flex;
+    flex-direction: column;
+    padding:3rem;
 }
 // Medium devices (tablets, 768px and up to 1399px)
 @media (min-width: 768px) and (max-width: 1399px) { 

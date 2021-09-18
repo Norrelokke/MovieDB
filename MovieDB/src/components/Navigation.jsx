@@ -9,7 +9,7 @@ const Navigation = () => {
         <Navbar bg="navbar navbar-dark" expand="md">
             <Container>
                 <Link to="/" className="navbar-brand">
-                   <img src="assets/logo.png" alt="Fresh Tomatoes" />
+                   <img src="/assets/logo.png" alt="Fresh Tomatoes" />
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -21,7 +21,13 @@ const Navigation = () => {
                             Genres
                         </NavLink>
                         <NavLink to="/popular" className="nav-link">
-                            Popular movies
+                            Popular 
+                        </NavLink>
+                        <NavLink to="/latest" className="nav-link">
+                            Latest 
+                        </NavLink>
+                        <NavLink to="/toprated" className="nav-link">
+                            Top Rated 
                         </NavLink>
                     
 

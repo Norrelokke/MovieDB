@@ -8,10 +8,8 @@ const MovieList = () => {
 
 	const { data:genres } = useQuery('genres', getGenres);
 	
-	
 		return (
 			<Container className="py-3">
-		
 			{genres && <GenreList genres={genres}/>}
 			</Container>
 		)

@@ -5,11 +5,11 @@ import { useHistory } from 'react-router';
 const GenreList = ({ genres }) => {
     const history = useHistory();
 
-    const handleClick = (genreName) => {
-      if (genreName === undefined) {
+    const handleClick = (genreId) => {
+      if (genreId === undefined) {
         history.push(`/PageNotFound`);
       } else {
-        history.push(`/genres/${genreName}`);
+        history.push(`/genres/${genreId}`);
       }
     };
 
@@ -18,11 +18,11 @@ const GenreList = ({ genres }) => {
 	  <div className="genre-list">
 		{genres.genres.map(genre => (
 		  <div 
-       className="movie-preview"
+       className="genre"
            key={genre.id}
-           onClick={() => handleClick(genre.name)} 
+           onClick={() => handleClick(genre.id)} 
            >
-			<h6>{ genre.name }</h6>
+			<h5>{ genre.name }</h5>
 			<p></p>
 		  </div>
 		))}

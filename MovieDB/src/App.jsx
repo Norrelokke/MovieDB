@@ -4,12 +4,11 @@ import HomePage from './pages/Home'
 import Navigation from './components/Navigation'
 import PageNotFound from './pages/PageNotFound'
 import AllMovies from './pages/MovieList'
-import Movie from './pages/Movie'
 import Genres from './pages/Genres'
 import SingleGenre from './pages/SingleGenre'
 import Popular from './components/Popular'
 import SingleMovie from './pages/SingleMovie'
-
+import SingleActor from './pages/SingleActor'
 
 function App() {
   return (
@@ -32,8 +31,8 @@ function App() {
           <Route exact path="/movie/:id">
             <SingleMovie />
           </Route>
-          <Route exact path="/movie">
-            <Movie />
+          <Route exact path="/actor/:id">
+            <SingleActor />
           </Route>
           <Route exact path="/popular">
             <Popular />

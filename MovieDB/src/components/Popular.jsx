@@ -2,11 +2,12 @@ import React from 'react'
 import { useHistory } from 'react-router';
 import { useQuery } from 'react-query';
 import { getpopularMovies } from '../services/API';
+import Container from 'react-bootstrap/esm/Container';
 
 const Popular = () => {
-	const { data:popmovies, status } = useQuery('popmovies', getpopularMovies);
+	const { data: popmovies, status } = useQuery('popmovies', getpopularMovies);
 	const history = useHistory();
-console.log(popmovies)
+	console.log(popmovies)
 	const handleClick = (movieId) => {
 		if (movieId === undefined) {
 			history.push(`/PageNotFound`);
@@ -17,18 +18,17 @@ console.log(popmovies)
 
 
 	return (
-		<div className="movie-list">
-			{popmovies.results.map(popmovie => (
-
-				<div className="movie-preview" key={popmovie.id} onClick={() => handleClick(popmovie.id)} >
-
-					<img src={"https://image.tmdb.org/t/p/w200/" + popmovie.poster_path} alt="posterimg" />
-					<h4>{popmovie.title}</h4>
-				</div>
-			))}
-		</div>
-
-
+		<>
+			<Container className="movie-list"><h1>Popular Movies</h1></Container>
+			<Container className="movie-list">
+				{popmovies.results.map(popmovie => (
+					<div className="movie-preview" key={popmovie.id} onClick={() => handleClick(popmovie.id)} >
+						<img src={"https://image.tmdb.org/t/p/w200/" + popmovie.poster_path} alt="posterimg" />
+						<p>{popmovie.title}</p>
+					</div>
+				))}
+			</Container>
+		</>
 	);
 }
 

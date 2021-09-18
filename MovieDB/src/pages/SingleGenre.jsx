@@ -7,11 +7,12 @@ import { useHistory } from 'react-router'
 import { useParams } from "react-router-dom";
 
 const SingleGenre = () => {
-	const historyParam = useParams();
+	const { id } = useParams();
 
-	const { data, error, isError, isLoading } = useQuery(['movies'], () => {
-		return getGenresById(historyParam.id)
+	const { data, error, isError, isLoading } = useQuery(['movies', id], () => {
+		return getGenresById(id)
 	})
+	console.log(data)
 	const history = useHistory();
 
 	const handleClick = (movieId) => {
@@ -21,20 +22,22 @@ const SingleGenre = () => {
 			history.push(`/movie/${movieId}`);
 		}
 	};
-
+	
 	return (
-		<Container className="py-3">
-			<h1>{historyParam.id}</h1>
-			{isLoading && <p>Loading...</p>}
-			{isError && <Alert variant="warning" className="my-4"><h6>{error.message}</h6></Alert>}
-			{data && data.results.map((movie, index) => (
-				<div className="movie-preview" key={movie.id} onClick={() => handleClick(movie.id)}>
-					<img src={"https://image.tmdb.org/t/p/w300/" + movie.backdrop_path} alt="posterimg" />
-					<h4>{movie.original_title}</h4>
-				</div>
-
+		<>
+			<Container className="movie-list"><h1>{id}</h1></Container>
+			<Container className="movie-list">
+				{isLoading && <h1>Loading...</h1>}
+					{isError && <Alert variant="warning" className="my-4"><h1>{error.message}</h1></Alert>}
+						{data && data.results.map((movie, index) => (
+							
+							<div className="movie-preview" key={movie.id} onClick={() => handleClick(movie.id)}>
+								<img src={"https://image.tmdb.org/t/p/w200/" + movie.poster_path} alt="posterimg" />
+								<p>{movie.original_title}</p>
+							</div>
 			))}
 		</Container>
+		</>
 	)
 }
 

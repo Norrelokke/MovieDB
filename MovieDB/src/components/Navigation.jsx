@@ -9,7 +9,7 @@ const Navigation = () => {
         <Navbar bg="navbar navbar-dark" expand="md">
             <Container>
                 <Link to="/" className="navbar-brand">
-                   <img src="assets/logo.png" alt="Fresh T" />
+                   <img src="assets/logo.png" alt="Fresh Tomatoes" />
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

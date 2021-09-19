@@ -15,13 +15,9 @@
     word-wrap: break-word;
     width:100px;
 }
-body{
-    background-color:#f3f3f3;
-}
 
 .navbar{
     background-color: #397367;
- 
 }
 .navbar-light .navbar-nav .nav-link{
     color:#fff;
@@ -29,25 +25,25 @@ body{
 .navbar-light .navbar-nav .nav-link.active{
     color:#5DA399;
 }
-
 .navbar-light .navbar-nav .nav-link:hover{
     color:#5DA399;
 }
-
-.movie-list h1{
+.movie-list-text{
     font-family: BebasNeue;
     font-weight: 600;
-    font-size:1.25rem;
+    font-size:1rem;
     letter-spacing: 0.1em;
-    padding: 1rem 0rem 0rem 2rem;
+    padding: 1rem 0rem;
+    display:flex;
+    justify-content: center;
+    background-color: #fff;
 }
 .genre-list{
     display:flex;
     cursor: pointer;
     flex-wrap: wrap;
-
 }
-.movie-list, .single-actor {
+.movie-list, .single-actor,.Actors-list-details {
     display: flex;
     flex-wrap: wrap;
     background-color: #fff;
@@ -55,9 +51,7 @@ body{
     letter-spacing: 0.05em;
     font-weight: 600;
     font-size: 1rem;
-justify-content: center;
   }
-
 .single-actor img{
     padding:2rem;
 }
@@ -73,21 +67,20 @@ justify-content: center;
 }
 .genre{
     margin: 1rem 1rem 0rem 0rem;
-    max-width: 160px;
+    max-width: 130px;
     cursor: pointer;
-    border: solid;
+    background-color:  #397367;
+    color:#fff;
     padding: 1rem 6rem 0rem 3rem;
-
+    display: flex;
+    flex-wrap: wrap;
 }
-
 .genre h5{
     font-family: BebasNeue;
 }
-
 .pagination-buttons{
     display: flex;
     justify-content: center;
-
 }
 .pagination-buttons a{
     color:#397367;
@@ -95,22 +88,22 @@ justify-content: center;
 .pagination-buttons a:hover{
     color:#000;
 }
-
-
 .Movie-details{
     background-color: #fff;
 }
-.backdrop img{
-    width:100%;
-    border-radius: 8px;
-    box-shadow: 0 5px 13px 0 rgba(0, 0, 0, 0.33);
-    margin-top:1rem;
+.Movie-details img{
+    padding:3rem;
+}
+.Actors-list-details{
+    font-family: BebasNeue;
+    background-color: #fff;
+    display:flex;
+    flex-wrap: wrap;
 }
 
 .Movie-details-text {
     font-family: BebasNeue;
 }
-
 .Actor-details{
     display:flex;
     flex-direction: column;
@@ -121,11 +114,4 @@ justify-content: center;
     .movie-preview{
         margin: 1rem 1rem 1rem 1rem;
     }
- }
- @media (min-width: 768px)  { 
-    .backdrop img{
-        width:50%;
-        float:right;
-    }
-    
  }

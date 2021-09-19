@@ -3,13 +3,12 @@ import { Route, Switch } from 'react-router-dom'
 import HomePage from './pages/Home'
 import Navigation from './components/Navigation'
 import PageNotFound from './pages/PageNotFound'
-
 import Genres from './pages/Genres'
 import SingleGenre from './pages/SingleGenre'
 import Popular from './components/Popular'
 import SingleMovie from './pages/SingleMovie'
 import SingleActor from './pages/SingleActor'
-import Latest from './components/Latest'
+import Upcoming from './components/Upcoming'
 import TopRated from './components/TopRated'
 
 function App() {
@@ -27,7 +26,6 @@ function App() {
           <Route exact path="/genres/:id">
             <SingleGenre />
           </Route>
-    
           <Route exact path="/movie/:id">
             <SingleMovie />
           </Route>
@@ -37,8 +35,8 @@ function App() {
           <Route exact path="/popular">
             <Popular />
           </Route>
-          <Route exact path="/latest">
-            <Latest />
+          <Route exact path="/upcoming">
+            <Upcoming />
           </Route>
           <Route exact path="/toprated">
             <TopRated />

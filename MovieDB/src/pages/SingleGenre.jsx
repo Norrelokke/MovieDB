@@ -9,11 +9,12 @@ import { useHistory } from 'react-router'
 import { useParams } from "react-router-dom";
 
 const SingleGenre = () => {
+	// Page for single genre, displaying all movies in specific genre, with urlSearchParams for pagination
 	const { id } = useParams();
 	const [searchParams, setSearchParams] = useUrlSearchParams({ page: 1 }, { page: Number })
 	const [page, setPage] = useState(searchParams.page);
-	const { data, error, isError, isLoading, isPreviousData } = useQuery(['movies', id, page], () => 
-		 getGenresById(id, page),
+	const { data, error, isError, isLoading, isPreviousData } = useQuery(['movies', id, page], () =>
+		getGenresById(id, page),
 		{
 			staleTime: 1000 * 60 * 5, // 5 mins
 			cacheTime: 1000 * 60 * 30, // 30 mins
@@ -24,8 +25,8 @@ const SingleGenre = () => {
 	useEffect(() => {
 		setSearchParams({ ...searchParams, page })
 	}, [page])
+
 	const history = useHistory();
-console.log(data)
 	const handleClick = (movieId) => {
 		if (movieId === undefined) {
 			history.push(`/PageNotFound`);
@@ -33,7 +34,7 @@ console.log(data)
 			history.push(`/movie/${movieId}`);
 		}
 	};
-
+	// Handle Click on movie, to send user to single movie page 
 	return (
 		<>
 			<Container className="movie-list">
@@ -41,24 +42,24 @@ console.log(data)
 				{isError && <Alert variant="warning" className="my-4"><h1>{error.message}</h1></Alert>}
 				{data?.results.map((movie, index) => (
 					<div className="movie-preview" key={movie.id} onClick={() => handleClick(movie.id)}>
-						<img src={movie.poster_path ?  "https://image.tmdb.org/t/p/w200/" + movie.poster_path :  "/assets/noimg.png" }  alt="posterimg" /> 
+						<img src={movie.poster_path ? "https://image.tmdb.org/t/p/w200/" + movie.poster_path : "/assets/noimg.png"} alt="posterimg" />
 						<p>{movie.original_title}</p>
 					</div>
 				))}
 				<Container className={"pagination-buttons"}>
-					<Button className="btn btn-light"  onClick={() => setPage(old => Math.max(old - 1, 0))}
-disabled={page === 1}>Previous</Button>
-					<Button className="btn btn-light">1</Button>
-					<Button className="btn btn-light">2</Button>
-					<Button className="btn btn-light">3</Button>
-					<Button className="btn btn-light"  onClick={() => {if (!isPreviousData || !hasMore) {
-setPage(old => old + 1)}}}>Next</Button>
+					<Button className="btn btn-light" onClick={() => setPage(old => Math.max(old - 1, 0))}
+						disabled={page === 1}>Previous</Button>
+					<Button className="btn btn-light" onClick={() => {
+						if (!isPreviousData || !hasMore) {
+							setPage(old => old + 1)
+						}
+					}}>Next</Button>
 				</Container>
 			</Container>
 
-			
+
 		</>
-			)
+	)
 }
 
 export default SingleGenre
